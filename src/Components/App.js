@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from "./Header";
 import Profiles from "./Profiles";
 import UserPage from "./UserPage";
