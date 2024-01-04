@@ -1,12 +1,14 @@
 import React from "react";
-
+import { Card, Flex } from "antd";
 
 const Assignments = () => {
     return (
-        <div>
-            Assignments
+        <Flex id="assign-sect" justify="start" className="p-5">
+        <Card title="Assignments" bordered={true} className="grow" >
+        <p>About</p>
 
-        </div>
+        </Card>
+        </Flex>
     )
 }
 

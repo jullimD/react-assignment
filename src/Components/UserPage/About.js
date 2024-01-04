@@ -3,12 +3,15 @@ import { Card, Flex } from "antd";
 
 const About = () => {
     return (
-        <Flex justify="center">
-            <Card title="About" bordered={true} style={{ width: 300 }}>
+        
+        <Flex id="about-sect" className="p-5" justify="start">
+        <Card  title="About" bordered={true} className="flex-1">
         <p>About</p>
 
         </Card>
         </Flex>
+        
+        
         
 
         

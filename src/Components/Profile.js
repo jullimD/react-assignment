@@ -1,8 +1,10 @@
 import React from 'react'
-import { Card, Image} from 'antd'
+import { Card, Image, Avatar} from 'antd'
+import { UserOutlined } from '@ant-design/icons';
 import { NavLink} from 'react-router-dom';
 
-const Profile = (props) => {
+const { Meta } = Card; 
+const Profile = ({user}) => {
 
     // const testClick = () => {
     //     console.log("clicked")
@@ -18,29 +20,22 @@ const Profile = (props) => {
             
         //     </Card>
         // </div>
-        <NavLink to={"/user/" + props.user} className="flex justify-around">
-            
+        <NavLink to={"/user/" + user} className="margin flex justify-around w-fit">  
             <Card
-
                 hoverable
                 className="card my-3 hover:bg-slate-50"
                 bordered={true}
-                title={<Image 
-                width={100} height={100}
-                src='error'
-                /> }
                 style={{
                 width: 500,
                 display: 'flex',
                 alignItems: 'flex-end'
                 }}
             >
-                <div>
-                <p>{props.user}</p>
-
-                <p>Profile goes here</p>
-                <p>Card Content</p>
-                </div>
+                <Meta 
+                avatar={<Avatar shape="square" size={64} src={user.avatar} />}
+                title={user.firstname + " " + user.lastname}
+                description={<p>Card Content</p>}
+                />
             </Card>
       </NavLink>
     )
