@@ -16,12 +16,10 @@ const Profiles = () => {
 
     }, [dispatch]);
 
-    console.log(users)
+    // console.log(users)
     return (
-    <div>
-
-        {console.log("test")}
-        <Row className="pt-20">
+    <div className="ml-20">
+        <Row className="ma pt-20">
             {users.map((user) =>
                  
                 <Col span={8} key={user.id}>

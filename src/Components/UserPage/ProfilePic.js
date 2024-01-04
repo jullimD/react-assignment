@@ -6,8 +6,13 @@ import { useParams } from "react-router";
 
 const { Meta } = Card; 
 
-const ProfilePic = () => {
-    const {id} = useParams()
+const ProfilePic = ({user}) => {
+    // const {id} = useParams()
+    // console.log(user);
+    if (!user || Object.keys(user).length === 0) {
+        // If user is undefined or an empty object, return some default content or null
+        return null; // or return a loading state or default content
+      }
     return (
         <Flex className="row-span-3 pt-5 pl-12" justify="center">
             <Card bordered={true} style={{ 
@@ -19,12 +24,11 @@ const ProfilePic = () => {
                     className=""
                     >
              <Meta 
-             avatar={<Avatar shape="square" size={84} icon={<UserOutlined />} 
-             
+             avatar={<Avatar shape="square" size={84} src={user.avatar}
              className="-pb-25"
              />}
-             title={id}
-             description={"Email here"}
+             title={user.name}
+             description={user.email}
              className="pb-5"
              />
             </Card>

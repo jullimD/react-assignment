@@ -20,7 +20,7 @@ const Profile = ({user}) => {
             
         //     </Card>
         // </div>
-        <NavLink to={"/user/" + user} className="margin flex justify-around w-fit">  
+        <NavLink to={"/user/" + user.id} className="margin flex justify-around w-fit">  
             <Card
                 hoverable
                 className="card my-3 hover:bg-slate-50"
@@ -34,7 +34,7 @@ const Profile = ({user}) => {
                 <Meta 
                 avatar={<Avatar shape="square" size={64} src={user.avatar} />}
                 title={user.firstname + " " + user.lastname}
-                description={<p>Card Content</p>}
+                description={user.email}
                 />
             </Card>
       </NavLink>
