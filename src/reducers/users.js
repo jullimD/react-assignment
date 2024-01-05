@@ -1,11 +1,14 @@
 
-const init = {
+const init =  {
     users: [],
     user: {},
     loading: false,
     error: null
 }
 
+const resetState = (state) => {
+    state = init;
+}
 
 const rootReducer = (state = init, action) => {
     switch (action.type) {

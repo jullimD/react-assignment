@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'antd';
 import Profile from "./Profile";
-import { fetchUsers } from "../Actions/users";
+import { fetchUsersSuccess, fetchUsersFailure } from "../Actions/users";
 
 const Profiles = () => {
 
@@ -12,7 +12,19 @@ const Profiles = () => {
 
 
     useEffect(() => {
-        dispatch(fetchUsers());
+        
+
+        fetch('https://6581584a3dfdd1b11c4303db.mockapi.io/users', {
+            method: 'GET',
+            headers: {'content-type':'application/json'},
+          }).then((response) => response.json()).then(users => {
+            // Do something with the list of tasks
+            dispatch(fetchUsersSuccess(users));
+          }).catch(error => {
+            // handle error
+            dispatch(fetchUsersFailure(error));
+            
+          })
 
     }, [dispatch]);
 
@@ -23,8 +35,7 @@ const Profiles = () => {
             {users.map((user) =>
                  
                 <Col span={8} key={user.id}>
-                  <Profile user={user}/>
-                  {console.log("Works")}   
+                  <Profile user={user}/>   
                 </Col>
             )}            
             

@@ -28,33 +28,34 @@ export const fetchUsersIdFailure = (error) => ({
     payload: error,
 })
 
-export const fetchUsers = () => {
-    return (dispatch) => {
-        dispatch(fetchUsersRequest);
+// export const fetchUsers = () => {
+//     return (dispatch) => {
+//         dispatch(fetchUsersRequest);
     
-        // return fetch('https://6581584a3dfdd1b11c4303db.mockapi.io/api/v1/users')
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     dispatch({ type: 'FETCH_USERS_SUCCESS', payload: data });
-        //   })
-        //   .catch((error) => {
-        //     dispatch({ type: 'FETCH_USERS_FAILED', payload: error.message });
-        //   });
+//         // return fetch('https://6581584a3dfdd1b11c4303db.mockapi.io/api/v1/users')
+//         //   .then((response) => response.json())
+//         //   .then((data) => {
+//         //     dispatch({ type: 'FETCH_USERS_SUCCESS', payload: data });
+//         //   })
+//         //   .catch((error) => {
+//         //     dispatch({ type: 'FETCH_USERS_FAILED', payload: error.message });
+//         //   });
 
-        return fetch('https://6581584a3dfdd1b11c4303db.mockapi.io/users', {
-            method: 'GET',
-            headers: {'content-type':'application/json'},
-          }).then((response) => response.json()).then(users => {
-            // Do something with the list of tasks
-            dispatch(fetchUsersSuccess(users));
-            console.log(users);
-          }).catch(error => {
-            // handle error
-            dispatch(fetchUsersFailure(error));
-          })
-      };
+//         return fetch('https://6581584a3dfdd1b11c4303db.mockapi.io/users', {
+//             method: 'GET',
+//             headers: {'content-type':'application/json'},
+//           }).then((response) => response.json()).then(users => {
+//             // Do something with the list of tasks
+//             dispatch(fetchUsersSuccess(users));
+//             console.log(users);
+//           }).catch(error => {
+//             // handle error
+//             dispatch(fetchUsersFailure(error));
+            
+//           })
+//       };
 
-};
+// };
 
 // export const fetchUsersId = (id) => {
 //     return async (dispatch) => {
@@ -76,18 +77,18 @@ export const fetchUsers = () => {
 // };
 
 
-export const fetchUsersId = (id) => {
-  return async (dispatch) => {
-    dispatch(fetchUsersIdRequest());
+// export const fetchUsersId = (id) => {
+//   return async (dispatch) => {
+//     dispatch(fetchUsersIdRequest());
 
-    try {
-      const response = await axios.get(`https://6581584a3dfdd1b11c4303db.mockapi.io/users/` + {id});
-      const user = response.data;
+//     try {
+//       const response = await axios.get(`https://6581584a3dfdd1b11c4303db.mockapi.io/users/` + {id});
+//       const user = response.data;
 
-      dispatch(fetchUsersIdSuccess(user));
-    } catch (error) {
-      dispatch(fetchUsersIdFailure(error));
-    }
-  };
-};
+//       dispatch(fetchUsersIdSuccess(user));
+//     } catch (error) {
+//       dispatch(fetchUsersIdFailure(error));
+//     }
+//   };
+// };
 
