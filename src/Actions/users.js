@@ -28,6 +28,9 @@ export const fetchUsersIdFailure = (error) => ({
     payload: error,
 })
 
+export const resetState = () => ({
+  type: 'RESET_STATE'
+})
 // export const fetchUsers = () => {
 //     return (dispatch) => {
 //         dispatch(fetchUsersRequest);

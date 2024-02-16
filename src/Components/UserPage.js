@@ -1,5 +1,5 @@
-import React , { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React , { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import About from "./UserPage/About";
 import Roles from "./UserPage/Roles";
@@ -19,7 +19,7 @@ const UserPage = () => {
     // console.log(id);
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user)
-
+    const [loading, setLoading] = useState(true);
 
     
     useEffect(() => {
@@ -30,10 +30,13 @@ const UserPage = () => {
           }).then((response) => response.json()).then(users => {
             // Do something with the list of tasks
             dispatch(fetchUsersIdSuccess(users));
+            setLoading(false);
             // console.log(user);
           }).catch(error => {
             // handle error
             dispatch(fetchUsersIdFailure(error));
+            setLoading(false);
+
           })
     }, [dispatch,id]);
     // console.log(user)
@@ -48,7 +51,7 @@ const UserPage = () => {
             <div className="col-start-1 col-span-2">
                 {/* <ProfilePic /> */}
                 <ProfilePic name={`${user.firstname} ${user.lastname}`}
-                email={user.email} avatar={user.avatar} 
+                email={user.email} avatar={user.avatar} loading={loading}
                 />
             </div>
             <div className="col-start-3 col-span-3 pr-40" >

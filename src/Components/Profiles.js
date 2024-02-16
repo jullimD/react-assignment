@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'antd';
 import Profile from "./Profile";
-import { fetchUsersSuccess, fetchUsersFailure } from "../Actions/users";
+import { fetchUsersSuccess, fetchUsersFailure, resetState } from "../Actions/users";
 
 const Profiles = () => {
 
@@ -12,7 +12,7 @@ const Profiles = () => {
 
 
     useEffect(() => {
-        
+        dispatch(resetState())
 
         fetch('https://6581584a3dfdd1b11c4303db.mockapi.io/users', {
             method: 'GET',

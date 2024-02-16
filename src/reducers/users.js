@@ -6,9 +6,7 @@ const init =  {
     error: null
 }
 
-const resetState = (state) => {
-    state = init;
-}
+
 
 const rootReducer = (state = init, action) => {
     switch (action.type) {
@@ -30,6 +28,8 @@ const rootReducer = (state = init, action) => {
       case 'USER_ID_FAILED':
         return { ...state, loading: false, error: action.payload };
 
+      case 'RESET_STATE':
+        return init;  
       default:
         return state;
     }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Card, Image, Avatar} from 'antd'
-import { UserOutlined } from '@ant-design/icons';
+import { Card, Avatar} from 'antd'
+// import { UserOutlined } from '@ant-design/icons';
 import { NavLink} from 'react-router-dom';
 
 const { Meta } = Card; 
@@ -34,7 +34,7 @@ const Profile = ({user}) => {
                 <Meta 
                 avatar={<Avatar shape="square" size={64} src={user.avatar} />}
                 title={user.firstname + " " + user.lastname}
-                description={user.email}
+                description={user.roles}
                 />
             </Card>
       </NavLink>
